@@ -7,35 +7,63 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f4f6f9;
-            padding-top: 50px;
+            background: linear-gradient(to right, #36d1dc, #5b86e5);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         .container {
             max-width: 600px;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        h2 {
+            font-weight: bold;
+            color: #5b86e5;
         }
         .form-group input {
             height: 45px;
+            border-radius: 8px;
         }
         .predict-btn {
-            height: 45px;
+            height: 50px;
             font-size: 18px;
+            border-radius: 50px;
+            font-weight: bold;
+            background: #5b86e5;
+            border: none;
+        }
+        .predict-btn:hover {
+            background: #36d1dc;
         }
         .result-box {
             margin-top: 30px;
             background-color: #e9f7ef;
             padding: 20px;
-            border-left: 6px solid #e956d0;
-            border-radius: 5px;
+            border-left: 6px solid #36d1dc;
+            border-radius: 8px;
+        }
+        .back-btn {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+            text-decoration: none;
+            color: #5b86e5;
+        }
+        .back-btn:hover {
+            text-decoration: underline;
+            color: #36d1dc;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2 class="text-center mb-4">Diabetes Prediction</h2>
+        <h2 class="text-center mb-4">🩺 Diabetes Prediction Form</h2>
         <form action="{{ url_for('predict_datapoint') }}" method="post">
             <div class="form-group">
                 <input type="text" name="Pregnancies" class="form-control" placeholder="Pregnancies" required>
@@ -61,15 +89,97 @@
             <div class="form-group">
                 <input type="text" name="Age" class="form-control" placeholder="Age" required>
             </div>
-            <button type="submit" class="btn btn-success btn-block predict-btn">Predict</button>
+            <button type="submit" class="btn btn-primary btn-block predict-btn">Predict</button>
         </form>
 
         {% if results %}
         <div class="result-box">
-            <h4>🩺 Predicted Diabetes Risk:</h4>
+            <h4>Predicted Diabetes Risk:</h4>
             <h3><strong>{{ results }}</strong></h3>
         </div>
         {% endif %}
+
+        <!-- mod -->
+        <!-- User Guide Section -->
+<div class="mt-5 user-guide">
+    <h4 class="text-center mb-4">User Guide</h4>
+    <ul class="guide-list">
+        <li data-toggle="tooltip" title="Number of times the person has been pregnant. Usually 0–17.">
+            Pregnancies
+        </li>
+        <li data-toggle="tooltip" title="Plasma glucose concentration after fasting. Normal: 70–140 mg/dL.">
+            Glucose
+        </li>
+        <li data-toggle="tooltip" title="Diastolic blood pressure (mm Hg). Normal: 60–90 mmHg.">
+            Blood Pressure
+        </li>
+        <li data-toggle="tooltip" title="Triceps skin fold thickness (mm). Typical: 10–50 mm.">
+            Skin Thickness
+        </li>
+        <li data-toggle="tooltip" title="2-Hour serum insulin (mu U/ml). Normal fasting: 16–166.">
+            Insulin
+        </li>
+        <li data-toggle="tooltip" title="Body Mass Index (kg/m²). Normal: 18.5–24.9. Overweight: 25–29.9.">
+            BMI
+        </li>
+        <li data-toggle="tooltip" title="Genetic risk factor (0.0–2.5). Higher means greater family history risk.">
+            Diabetes Pedigree Function
+        </li>
+        <li data-toggle="tooltip" title="Age in years. Risk increases after age 35.">
+            Age
+        </li>
+    </ul>
+</div>
+
+<!-- Custom Styles -->
+<style>
+    .user-guide {
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+    }
+    .user-guide h4 {
+        font-weight: bold;
+        color: #333;
+    }
+    .guide-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .guide-list li {
+        padding: 12px 15px;
+        margin-bottom: 8px;
+        border-radius: 6px;
+        background: #fff;
+        border: 1px solid #eee;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        font-size: 16px;
+        color: #444;
+    }
+    .guide-list li:hover {
+        background: #eaf2fd;
+        border-color: #5b86e5;
+        color: #2c3e50;
+    }
+</style>
+
+<!-- Bootstrap JS (tooltip activation) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
+
+
+        <!-- mod -->
+
+        <a href="http://172.18.33.18:5000" class="back-btn">⬅ Back to Home</a>
     </div>
 </body>
 </html>
+
