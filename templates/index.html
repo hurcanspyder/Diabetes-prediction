@@ -1,3 +1,69 @@
-<h1>
-    Hello How are you!! Welcome to the Home page
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome | Diabetes Prediction</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #36d1dc, #5b86e5);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            text-align: center;
+        }
+        .hero {
+            max-width: 700px;
+            margin-bottom: 50px;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            margin: 20px 0 40px;
+        }
+        .btn-custom {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            background: #fff;
+            color: #5b86e5;
+            font-weight: bold;
+            transition: 0.3s;
+            text-decoration: none;
+            margin: 10px;
+            display: inline-block;
+        }
+        .btn-custom:hover {
+            background: #5b86e5;
+            color: #fff;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+        }
+        .footer {
+            font-size: 0.9rem;
+            color: #f1f1f1;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>🩺 Diabetes Prediction System</h1>
+        <p>Early detection can save lives. Get your diabetes risk prediction instantly.</p>
+        
+        <!-- Buttons -->
+        <a href="\predictdiabetes" class="btn btn-custom">Go to Prediction</a>
+        <a href="static/documentation.pdf" class="btn btn-custom" target="_blank">📄 Documentation</a>
+    </div>
+
+    <div class="footer">
+        <p>🌟 This web application is designed by <strong>Vivek Kaushal</strong>.</p>
+    </div>
+</body>
+</html>
